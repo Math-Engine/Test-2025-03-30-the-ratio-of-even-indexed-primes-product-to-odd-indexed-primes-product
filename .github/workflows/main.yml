@@ -1,0 +1,25 @@
+name: Test-2025-03-30-the-ratio-of-even-indexed-primes-product-to-odd-indexed-primes-product
+
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        description: '2부터 n번째 소수까지 확인'
+        required: true
+        type: string
+
+run-name: Represent Graph - [ ${{ github.event.inputs.n }} ]
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Julia
+      uses: julia-actions/setup-julia@v2
+      with:
+        version: '1'
+    - name: Install dependencies
+      run: julia -e 'import Pkg; Pkg.add("Plots")'
+    - name: Run Represent-Graph.jl
+      run: julia Represent-Graph.jl ${{ github.event.inputs.n }}
