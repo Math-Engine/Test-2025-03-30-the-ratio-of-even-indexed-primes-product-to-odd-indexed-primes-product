@@ -37,6 +37,7 @@ for i in 2:real_param_n
   global mul_even
   global ratio_array_x
   global ratio_array_y
+  global the_number_of_primes
   if is_prime(i) == true
     the_number_of_primes = the_number_of_primes + 1
     if the_number_of_primes%2 == 1
